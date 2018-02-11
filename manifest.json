@@ -1,0 +1,20 @@
+{
+  "name": "Watcher",
+  "version":"1.0",
+  "manifest_version":2,
+  "description":"Redierect certain domain for proxy",
+  "browser_action":{
+    "default_icon":"visible.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+  "permissions": [
+    "tabs",
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ]
+}

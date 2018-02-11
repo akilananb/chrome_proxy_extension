@@ -1,0 +1,50 @@
+.domain-input {
+  border: none;
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.domain-input::-webkit-input-placeholder {
+  color: rgb(236, 168, 122);
+  font-size: large;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.loader {
+  margin: auto;
+  border: 11px solid #f3f3f3;
+  border-top: 11px solid rgb(236, 168, 122);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 1s linear infinite;
+}
+.loader-text{
+  margin: auto;
+  text-align: center;
+  padding-top: 5px; 
+  padding-left: 5px; 
+}
+
+.button {
+  background-color: rgb(236, 168, 122);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+}
+.add-proxy > input{
+  padding: 5px;
+}
+.hide{
+  display: none
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
