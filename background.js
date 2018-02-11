@@ -52,9 +52,9 @@ chrome.storage.onChanged.addListener((changes, location) => {
   if (location === 'sync') updateStore();
 });
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+chrome.tabs.onCreated.addListener((tabId, changeInfo, tab) => {
   let { url, status } = changeInfo;
-
+  console.log(changeInfo);
   if (
     status === 'loading' &&
     proxy_domains.includes(extractRootDomain(url)) &&
@@ -64,4 +64,23 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       url: `${proxy_url}?${url}`
     });
   }
+});
+
+function getword(info,tab) {
+  console.log("Word " + info.selectionText + " was clicked.");
+  chrome.tabs.create({  
+    url: "http://www.google.com/search?q=" + info.selectionText,
+  });           
+}
+
+chrome.contextMenus.create({
+  id:'bypass',
+  title: "Open Link In Bypass", 
+  contexts:["link"]
+});
+
+chrome.contextMenus.onClicked.addListener(function(selectedData){
+  chrome.tabs.create({  
+    url: `${proxy_url}?${selectedData.linkUrl}`,
+  });    
 });
